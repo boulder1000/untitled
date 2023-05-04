@@ -1,9 +1,11 @@
 package be.vdab.voertuigen;
 
+import java.util.TreeSet;
+
 public class Testprogramma {
     public static void main(String[] args) {
         var personenwagen1 = new personenwagen("srf", 500.5F, 50, 10.5F, "GT4654", 5, 4);
-        var vrachtwagen1 = new vrachtwagen("ffff", 5000.5F, 4000, 20.5F, "JGG75G", 2000.5F);
+        var vrachtwagen1 = new vrachtwagen("ffff", 5000.5F, 4000, 20.5F, "AJGG75G", 2000.5F);
         System.out.println(personenwagen1);
         System.out.println(personenwagen1.toon());
         System.out.println(personenwagen1.getKyotoScore());
@@ -35,6 +37,12 @@ public class Testprogramma {
         for (var Voertuig : Voertuigen) {
             Voertuig.geefMilieuData();
             Voertuig.geefPrivateData();
+        }
+        var tree = new TreeSet<voertuig>(new compare());
+        tree.add(personenwagen1);
+        tree.add(vrachtwagen1);
+        for (var t:tree){
+            System.out.println(t);
         }
     }
 }

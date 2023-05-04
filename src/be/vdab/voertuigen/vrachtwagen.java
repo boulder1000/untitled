@@ -10,10 +10,9 @@ public class vrachtwagen extends voertuig implements Vervuiler{
 
     @Override
     public String toString() {
-        return super.toString()+
-         "vrachtwagen{" +
+        return "vrachtwagen{" +
                 "maxlading=" + maxlading +
-                '}';
+                "} " + super.toString();
     }
 
     public double getKyotoScore(){

@@ -51,7 +51,7 @@ public abstract class boek implements Voorwerp {
 
         int laatstecijfer = Integer.parseInt(String.valueOf(isbn13.charAt(isbn13.length()-1)));
         for (int i =0 ; i<=6;i++){
-            newint[i] =Integer.parseInt(newstring.substring(i,i+1))*1;
+            newint[i] = Integer.parseInt(newstring.substring(i, i + 1));
             newint[i+1] = Integer.parseInt(newstring.substring(i+1,i+2))*3;
         }
         int som = 0;
