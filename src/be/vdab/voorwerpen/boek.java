@@ -12,15 +12,19 @@ public abstract class boek implements Voorwerp {
     public boek() {
     }
 
-    public boek(String titel, String auteur, float aankoopprijs, String genre,String isbn13) {
-        if (!(titel == null) || titel.isEmpty()){
-        this.titel = titel;}
-        if (!(auteur == null) || auteur.isEmpty()){
-        this.auteur = auteur;}
-        if (aankoopprijs >= 0){
-        this.aankoopprijs = aankoopprijs;}
-        if (!(genre == null) || genre.isEmpty()){
-        this.genre = genre;}
+    public boek(String titel, String auteur, float aankoopprijs, String genre, String isbn13) {
+        if (!(titel == null) || titel.isEmpty()) {
+            this.titel = titel;
+        }
+        if (!(auteur == null) || auteur.isEmpty()) {
+            this.auteur = auteur;
+        }
+        if (aankoopprijs >= 0) {
+            this.aankoopprijs = aankoopprijs;
+        }
+        if (!(genre == null) || genre.isEmpty()) {
+            this.genre = genre;
+        }
         setIsbn13(isbn13);
     }
 
@@ -45,31 +49,37 @@ public abstract class boek implements Voorwerp {
         return genre;
     }
 
-    public void setIsbn13(String isbn13) {
-        String newstring = isbn13.replace("-","");
+    public void setIsbn13(String isbn13) throws Isbn13Exception{
+
+
+
+        String newstring = isbn13.replace("-", "");
         int[] newint = new int[12];
 
-        int laatstecijfer = Integer.parseInt(String.valueOf(isbn13.charAt(isbn13.length()-1)));
-        for (int i =0 ; i<=6;i++){
-            newint[i] =Integer.parseInt(newstring.substring(i,i+1))*1;
-            newint[i+1] = Integer.parseInt(newstring.substring(i+1,i+2))*3;
-        }
-        int som = 0;
-        for (var x:newint
-             ) {
-            som +=x;
-           double modulo = som % 10;
-           if (modulo-10 ==laatstecijfer)
-            {
-                this.isbn13 = isbn13;
+        int laatstecijfer = Integer.parseInt(String.valueOf(isbn13.charAt(isbn13.length() - 1)));
+        for (int i = 0; i < 12; i++) {
+            if ((i+1) % 2 != 0) {
+                newint[i] = Integer.parseInt(String.valueOf(newstring.charAt(i)));
             }
             else {
-               System.out.println("error");
-           }
+                newint[i] = Integer.parseInt(String.valueOf(newstring.charAt(i))) * 3;
+            }
+        }
+        int som = 0;
 
+        for (var x : newint)
+        {
+            som += x;
+        }
+        double modulo = som % 10;
+        if (10 - modulo== laatstecijfer) {
+            this.isbn13 = isbn13;
+        } else {
+            throw new Isbn13Exception("fout Isbn13 nummer");
         }
 
-        }
+    }
+
 
     public String getIsbn13() {
         return isbn13;

@@ -1,5 +1,7 @@
 package be.vdab.voertuigen;
 
+import javax.swing.*;
+
 public abstract class voertuig implements Milieu,Privaat{
     private String polishouder;
     private float kostprijs = 0.0F;
@@ -22,7 +24,6 @@ public abstract class voertuig implements Milieu,Privaat{
         if (!(nummerplaat == null && nummerplaat.isEmpty())){
         this.nummerplaat = nummerplaat;}
     }
-
 
     public String getPolishouder() {
         return polishouder;
