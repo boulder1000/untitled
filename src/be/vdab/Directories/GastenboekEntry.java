@@ -1,23 +1,20 @@
 package be.vdab.Directories;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class GastenboekEntry {
-    private LocalDateTime date;
+public class GastenboekEntry implements Serializable {
+    private final LocalDateTime date =LocalDateTime.now();
     private String shrijver,boodschap;
 
-    public GastenboekEntry(LocalDateTime date, String shrijver, String boodschap) {
-        this.date = date;
+    public GastenboekEntry( String shrijver, String boodschap) {
         this.shrijver = shrijver;
         this.boodschap = boodschap;
     }
 
+
     public LocalDateTime getDate() {
         return date;
-    }
-
-    public void setDate(LocalDateTime date) {
-        this.date = date;
     }
 
     public String getShrijver() {

@@ -9,19 +9,23 @@ import java.nio.file.Path;
 public class GastenboekManager
 {
 
-    public void Serialize(Gastenboek gastenboek){
-        try (var stream = new ObjectOutputStream(Files.newOutputStream(Path.of("/data/punt.ser"))))
+    public void schrijf(Gastenboek gastenboek){
+        try (var stream = new ObjectOutputStream(Files.newOutputStream(Path.of("/data/gastenboek.ser"))))
         {
             stream.writeObject(gastenboek);
         }
         catch (IOException ex) { System.out.println(ex); }
     }
-    public void Deserialize(){
-        try (var stream = new ObjectInputStream(Files.newInputStream( Path.of("/data/punt.ser"))); ){
-        return (Gastenboek) stream.readObject();
+    public Gastenboek lees() {
+        Path X = Path.of("/data/gastenboeks.ser");
+        if (Files.exists(X)) {
+            try (var stream = new ObjectInputStream(Files.newInputStream(X));) {
+                return (Gastenboek) stream.readObject();
+            } catch (Exception ex) {
+                System.out.println(ex);
+                return null;
+            }
         }
-        catch (IOException | ClassNotFoundException ex) {
-            System.out.println(ex);
-        }
+        return new Gastenboek();
     }
 }
