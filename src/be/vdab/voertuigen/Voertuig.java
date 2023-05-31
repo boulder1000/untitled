@@ -59,5 +59,11 @@ public abstract class Voertuig implements Comparable<Nummerplaat> {
     public int hashCode() {
         return Objects.hash(getNummerplaat(), getMerk(), getAankoopprijs());
     }
+
+    @Override
+    public int compareTo(Nummerplaat o) {
+        return this.nummerplaat.compareTo(o);
+
+    }
 }
 

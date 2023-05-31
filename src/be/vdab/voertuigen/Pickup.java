@@ -30,10 +30,6 @@ public class Pickup extends Voertuig implements Laadbaar {
                 "} " + super.toString();
     }
 
-    @Override
-    public int compareTo(Nummerplaat o) {
-        return 0;
-    }
 
     @Override
     public boolean equals(Object o) {

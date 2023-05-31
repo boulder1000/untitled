@@ -63,8 +63,5 @@ public class Vrachtwagen extends Voertuig implements Laadbaar {
                 "} " + super.toString();
     }
 
-    @Override
-    public int compareTo(Nummerplaat o) {
-        return 0;
-    }
+
 }

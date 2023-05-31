@@ -35,10 +35,6 @@ public class Personenwagen extends Voertuig {
         return Objects.hash(super.hashCode(), getZitplaatsen());
     }
 
-    @Override
-    public int compareTo(Nummerplaat o) {
-        return 0;
-    }
 
     @Override
     public String toString() {
