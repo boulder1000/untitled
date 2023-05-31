@@ -1,6 +1,10 @@
 package be.vdab.voertuigen.util;
 
-public final class Volume implements Comparable<Volume>{
+import be.vdab.voertuigen.div.Nummerplaat;
+
+import java.io.Serializable;
+
+public final class Volume implements Comparable<Volume>, Serializable {
     private final int breedte,hoogte,diepte;
     private final Maat maat;
 
@@ -33,6 +37,17 @@ public final class Volume implements Comparable<Volume>{
 
     @Override
     public int compareTo(Volume o) {
-        return 0;
+            return this.breedte - o.breedte;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Volume{" +
+                "breedte=" + breedte +
+                ", hoogte=" + hoogte +
+                ", diepte=" + diepte +
+                ", maat=" + maat +
+                '}';
     }
 }

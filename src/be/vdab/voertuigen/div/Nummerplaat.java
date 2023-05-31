@@ -1,8 +1,9 @@
 package be.vdab.voertuigen.div;
 
+import java.io.Serializable;
 import java.util.Objects ;
 
-public  class Nummerplaat implements Comparable<Nummerplaat>{
+public  class Nummerplaat implements Comparable<Nummerplaat>, Serializable {
     public final String plaat;
 
     public Nummerplaat(String plaat) {

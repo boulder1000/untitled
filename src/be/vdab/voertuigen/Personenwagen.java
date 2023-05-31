@@ -2,6 +2,7 @@ package be.vdab.voertuigen;
 
 import be.vdab.voertuigen.div.Nummerplaat;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 public class Personenwagen extends Voertuig {

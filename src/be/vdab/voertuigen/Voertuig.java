@@ -3,9 +3,10 @@ package be.vdab.voertuigen;
 import be.vdab.voertuigen.div.Div;
 import be.vdab.voertuigen.div.Nummerplaat;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public abstract class Voertuig implements Comparable<Voertuig> {
+public abstract class Voertuig implements Comparable<Voertuig>, Serializable {
     private final Nummerplaat nummerplaat = Div.INSTANCE.getNummerplaat();
     private String merk;
     private int aankoopprijs;
