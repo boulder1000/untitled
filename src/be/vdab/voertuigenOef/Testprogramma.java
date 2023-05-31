@@ -1,4 +1,4 @@
-package be.vdab.voertuigen;
+package be.vdab.voertuigenOef;
 
 import java.util.TreeSet;
 

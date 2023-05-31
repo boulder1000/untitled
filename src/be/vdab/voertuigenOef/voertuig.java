@@ -1,6 +1,4 @@
-package be.vdab.voertuigen;
-
-import javax.swing.*;
+package be.vdab.voertuigenOef;
 
 public abstract class voertuig implements Milieu,Privaat{
     private String polishouder;

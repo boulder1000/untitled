@@ -1,4 +1,4 @@
-package be.vdab.voertuigen;
+package be.vdab.voertuigenOef;
 
 public class stookketel implements Vervuiler{
     private float COnorm;

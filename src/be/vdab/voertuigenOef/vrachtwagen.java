@@ -1,4 +1,4 @@
-package be.vdab.voertuigen;
+package be.vdab.voertuigenOef;
 
 public class vrachtwagen extends voertuig implements Vervuiler{
     private float maxlading = 10000F;

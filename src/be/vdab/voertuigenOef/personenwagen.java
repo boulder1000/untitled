@@ -1,4 +1,4 @@
-package be.vdab.voertuigen;
+package be.vdab.voertuigenOef;
 
 public class personenwagen extends voertuig implements Vervuiler{
     private int aantaldeuren = 4;
