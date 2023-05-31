@@ -2,7 +2,7 @@ package be.vdab.voertuigen.div;
 
 import java.util.Objects ;
 
-public  class Nummerplaat implements Comparable{
+public  class Nummerplaat implements Comparable<Nummerplaat>{
     public final String plaat;
 
     public Nummerplaat(String plaat) {
@@ -34,7 +34,7 @@ public  class Nummerplaat implements Comparable{
 
 
     @Override
-    public int compareTo(Object o) {
-        return 0;
+    public int compareTo(Nummerplaat o) {
+        return this.plaat.compareTo(o.plaat);
     }
 }

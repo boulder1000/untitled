@@ -5,7 +5,7 @@ import be.vdab.voertuigen.div.Nummerplaat;
 
 import java.util.Objects;
 
-public abstract class Voertuig implements Comparable<Nummerplaat> {
+public abstract class Voertuig implements Comparable<Voertuig> {
     private final Nummerplaat nummerplaat = Div.INSTANCE.getNummerplaat();
     private String merk;
     private int aankoopprijs;
@@ -61,8 +61,8 @@ public abstract class Voertuig implements Comparable<Nummerplaat> {
     }
 
     @Override
-    public int compareTo(Nummerplaat o) {
-        return this.nummerplaat.compareTo(o);
+    public int compareTo(Voertuig o) {
+        return this.nummerplaat.compareTo(o.nummerplaat);
 
     }
 }
