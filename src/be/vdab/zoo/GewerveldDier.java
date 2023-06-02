@@ -10,13 +10,10 @@ public abstract class GewerveldDier {
     private String naam;
 
     public GewerveldDier(be.vdab.zoo.Huidbedekking huidbedekking, List<be.vdab.zoo.Milieu> milieu, String naam) {
-        huidbedekking = huidbedekking;
-        milieu = milieu;
-        naam = naam;
+        this.huidbedekking = huidbedekking;
+        this.milieu = milieu;
+        this.naam = naam;
 
-    }
-
-    public GewerveldDier() {
     }
 
     public Huidbedekking getHuidbedekking() {
@@ -53,7 +50,7 @@ public abstract class GewerveldDier {
     }
 
     public String verzorging(){
-        return switch (this.huidbedekking) {
+        return switch (huidbedekking) {
             case glad -> "regelmatig laten afkoelen";
             case schubben -> "geen speciale verzorging nodig";
             case haren -> "regelmatig wassen";

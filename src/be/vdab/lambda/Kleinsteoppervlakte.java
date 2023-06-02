@@ -1,7 +1,7 @@
 package be.vdab.lambda;
 
 public class Kleinsteoppervlakte {
-    class Rechthoek {
+    public class Rechthoek {
         private final int lengte;
         private final int breedte;
         Rechthoek(int lengte, int breedte) {

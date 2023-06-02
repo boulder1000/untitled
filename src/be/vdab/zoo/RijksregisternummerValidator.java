@@ -2,13 +2,12 @@ package be.vdab.zoo;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
-public class RjiksregisternummerValidator {
+public class RijksregisternummerValidator {
     public boolean isValid(long rijksregisternummer, LocalDate geboortedatum){
-        String strDatum = geboortedatum.format(DateTimeFormatter.ofPattern("yymmdd")).toString();
+        String strDatum = geboortedatum.format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
         boolean x = true;
-        String eerste = String.valueOf(rijksregisternummer).substring(0,5);
+        String eerste = String.valueOf(rijksregisternummer).substring(0,6);
         if (!(strDatum.equals(eerste))){
             x = false;
 
@@ -23,7 +22,7 @@ public class RjiksregisternummerValidator {
 
         }
         else {
-            rest = (int) (eerste9 % 97);
+            rest = 97- (int) (eerste9 % 97);
         }
 
         var controlegetal = (int) (rijksregisternummer % 100);
@@ -31,7 +30,7 @@ public class RjiksregisternummerValidator {
         if (controlegetal != rest){
             x = false;
         }
-        if (x = false){
+        if (x == false){
             throw new RijksregisternummerNietGeldigException("fout nummer");
         }
         else return true;

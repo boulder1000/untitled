@@ -5,13 +5,22 @@ import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.Objects;
 
-public class Mens extends zoogdier implements Comparator<Mens> {
+public class Mens extends Zoogdier implements Comparator<Mens>{
     private long rijksregisternummer;
     private LocalDate geboortedatum;
 
     public Mens(String naam, long rijksregisternummer, LocalDate geboortedatum) {
         super(naam);
-        this.rijksregisternummer = rijksregisternummer;
+        try {
+
+
+            if (new RijksregisternummerValidator().isValid(rijksregisternummer, geboortedatum)) {
+                this.rijksregisternummer = rijksregisternummer;
+            }
+        }
+        catch (Exception ex) {
+        System.err.println(ex);
+    }
         this.geboortedatum = geboortedatum;
     }
 

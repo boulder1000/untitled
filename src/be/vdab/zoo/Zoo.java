@@ -1,9 +1,6 @@
 package be.vdab.zoo;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public record Zoo() {
     private static Set<GewerveldDier> set = new HashSet<>();
@@ -18,12 +15,18 @@ public record Zoo() {
     }
 
     public void printlijstVanAlleDieren() {
-        set.stream().filter(GewerveldDier -> GewerveldDier.getMilieu().equals(Milieu.land)).forEach(GewerveldDier -> System.out.println(GewerveldDier));
+        set.stream().filter(GewerveldDier -> GewerveldDier.getMilieu().contains(Milieu.land)).forEach(GewerveldDier -> System.out.println(GewerveldDier.getNaam()));
     }
     public void lijstVanAlleDierenNamenGesorteerdOpAlfabet()
     {
-  set.stream().sorted().forEach(gewerveldDier -> System.out.println(gewerveldDier.getNaam()));
+  set.stream().sorted(Comparator.comparing(GewerveldDier::getNaam)).forEach(gewerveldDier -> System.out.println(gewerveldDier.getNaam()));
     }
 
 
+    public void percentageMensen(){
+        long mensen = set.stream().filter(GewerveldDier -> GewerveldDier instanceof Mens).count();
+    }
+public void lijstVanAlleKrokodillenGesorteerdOpGewicht(){
+
+}
 }
