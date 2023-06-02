@@ -1,5 +1,5 @@
 package be.vdab.voertuigenOef;
 
-public interface Milieu {
+public  interface Milieu {
      void geefMilieuData();
 }
