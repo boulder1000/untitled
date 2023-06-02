@@ -4,12 +4,11 @@ package be.vdab.zoo;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class Vis extends GewerveldDier{
+public abstract non-sealed class Vis extends GewerveldDier{
     private WelkeVis welkeVis;
-    private static final List<Milieu> list = Arrays.asList(new Milieu[]{Milieu.water});
 
     public Vis(String naam, WelkeVis welkeVis) {
-        super(Huidbedekking.glad, list, naam);
+        super(Huidbedekking.glad, Arrays.asList(Milieu.water), naam);
         this.welkeVis = welkeVis;
     }
 

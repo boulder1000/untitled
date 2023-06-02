@@ -12,7 +12,7 @@ public class SterrenbeeldenZoeken {
         String inputwoord = scanner.next().toUpperCase();
         var sterrebeelden = Path.of("/data/sterrenbeelden.txt");
         try (var stream = Files.lines(sterrebeelden)) {
-            stream.filter(woord ->woord.toUpperCase().contains(inputwoord)).forEach(woord -> System.out.println(woord));
+            stream.filter(woord ->woord.toUpperCase().contains(inputwoord)).forEach(System.out::println);
 
         }
 catch (Exception ex){

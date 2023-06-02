@@ -3,11 +3,11 @@ package be.vdab.zoo;
 import java.util.List;
 import java.util.Objects;
 
-public abstract class GewerveldDier {
-    private Huidbedekking huidbedekking;
+public sealed abstract class GewerveldDier permits Amfibie, Reptiel, Vis, Vogel, Zoogdier {
+    private final Huidbedekking huidbedekking;
 
-    private List<be.vdab.zoo.Milieu> milieu;
-    private String naam;
+    private final List<be.vdab.zoo.Milieu> milieu;
+    private final String naam;
 
     public GewerveldDier(be.vdab.zoo.Huidbedekking huidbedekking, List<be.vdab.zoo.Milieu> milieu, String naam) {
         this.huidbedekking = huidbedekking;
@@ -45,7 +45,7 @@ public abstract class GewerveldDier {
         return "GewerveldDier{" +
                 "Huidbedekking=" + huidbedekking +
                 ", Milieu=" + milieu +
-                ", Naam='" + naam + verzorging()+'\'' +
+                ", Naam='" + naam +" " + verzorging()+'\'' +
                 '}';
     }
 
@@ -55,7 +55,6 @@ public abstract class GewerveldDier {
             case schubben -> "geen speciale verzorging nodig";
             case haren -> "regelmatig wassen";
             case veren -> "regelmatig wassen en invetten";
-            default -> null;
         };
     }
 }

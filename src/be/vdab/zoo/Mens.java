@@ -1,28 +1,24 @@
 package be.vdab.zoo;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.Objects;
 
-public class Mens extends Zoogdier implements Comparator<Mens>{
+public class Mens extends Zoogdier implements Comparable<Mens>{
     private long rijksregisternummer;
     private LocalDate geboortedatum;
 
     public Mens(String naam, long rijksregisternummer, LocalDate geboortedatum) {
         super(naam);
-        try {
-
-
             if (new RijksregisternummerValidator().isValid(rijksregisternummer, geboortedatum)) {
                 this.rijksregisternummer = rijksregisternummer;
             }
-        }
-        catch (Exception ex) {
-        System.err.println(ex);
-    }
         this.geboortedatum = geboortedatum;
-    }
+        }
+
+
 
     @Override
     public boolean equals(Object o) {
@@ -38,14 +34,16 @@ public class Mens extends Zoogdier implements Comparator<Mens>{
     }
 
     @Override
-    public int compare(Mens o1, Mens o2) {
-        return -1;
+    public String toString() {
+        var nu = LocalDate.now();
+        var period = Period.between(geboortedatum,nu);
+        return "Mens{" +
+                "geboortedatum=" + period.getYears() +
+                "} " + super.toString();
     }
 
     @Override
-    public String toString() {
-        return "Mens{" +
-                "geboortedatum=" + geboortedatum.format(DateTimeFormatter.ofPattern("yyyy")) +
-                "} " + super.toString();
+    public int compareTo(Mens o) {
+        return 0;
     }
 }

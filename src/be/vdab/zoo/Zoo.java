@@ -3,9 +3,9 @@ package be.vdab.zoo;
 import java.util.*;
 
 public record Zoo() {
-    private static Set<GewerveldDier> set = new HashSet<>();
+    private static final Set<GewerveldDier> set = new HashSet<>();
 
-    public void VoegDierToe(GewerveldDier gewerveldDier) {
+    public void voegDierToe(GewerveldDier gewerveldDier) {
         set.add(gewerveldDier);
     }
 

@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class Reptiel extends GewerveldDier{
-    private static final List<Milieu> list = Arrays.asList(new Milieu[]{Milieu.land,Milieu.water});
+public abstract non-sealed class Reptiel extends GewerveldDier{
+
 
     public Reptiel(String naam) {
-        super(Huidbedekking.schubben, list, naam);
+        super(Huidbedekking.schubben, Arrays.asList(Milieu.land,Milieu.water), naam);
     }
 }

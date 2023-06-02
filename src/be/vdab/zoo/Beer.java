@@ -1,15 +1,14 @@
 package be.vdab.zoo;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Beer extends Zoogdier {
-    private List<String> leefgebied;
+    private  List<String> leefgebied;
 
     public Beer(String naam, List<String> leefgebied) {
         super(naam);
-        setLeefgebied(leefgebied);
+
+        this.leefgebied = leefgebied;
     }
 
     @Override
@@ -19,25 +18,23 @@ public class Beer extends Zoogdier {
                 "} " + super.toString();
     }
 
-    public void setLeefgebied(List<String> leefgebied) {
-        try {
-            var x = false;
-            Set<String> set = new HashSet<>(leefgebied);
-            if (set.size() < leefgebied.size()) {
-                x = true;
-            }
-
-            if (leefgebied.isEmpty()) {
-                throw new IllegalArgumentException("mag niet leeg zijn");
-            } else if (x == true) {
+    public void setLeefgebied(String strGebied) {
+            if (this.leefgebied.contains(strGebied)){
                 throw new IllegalArgumentException("mag geen duplicaten hebben");
-            } else {
-                this.leefgebied = leefgebied;
+            }
+            else if (strGebied.isEmpty()) {
+                throw new IllegalArgumentException("mag niet leeg zijn");
+            }
+        else {
+            this.leefgebied.add(strGebied);
             }
 
-        }
-        catch (Exception ex){
-            System.err.println(ex);
+
+}
+
+
+
     }
-}}
+
+
 

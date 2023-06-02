@@ -4,12 +4,12 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class RijksregisternummerValidator {
-    public boolean isValid(long rijksregisternummer, LocalDate geboortedatum){
+    public static boolean isValid(long rijksregisternummer, LocalDate geboortedatum){
         String strDatum = geboortedatum.format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
-        boolean x = true;
+        boolean boolFoutloos = true;
         String eerste = String.valueOf(rijksregisternummer).substring(0,6);
         if (!(strDatum.equals(eerste))){
-            x = false;
+            boolFoutloos = false;
 
         }
         var eerste9 = rijksregisternummer / 100;
@@ -28,9 +28,9 @@ public class RijksregisternummerValidator {
         var controlegetal = (int) (rijksregisternummer % 100);
 
         if (controlegetal != rest){
-            x = false;
+            boolFoutloos = false;
         }
-        if (x == false){
+        if (boolFoutloos == false){
             throw new RijksregisternummerNietGeldigException("fout nummer");
         }
         else return true;

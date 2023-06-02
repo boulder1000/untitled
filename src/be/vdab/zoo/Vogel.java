@@ -4,12 +4,11 @@ package be.vdab.zoo;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class Vogel extends GewerveldDier{
+public abstract non-sealed class Vogel extends GewerveldDier{
     private Vliegen vliegen;
-    private static final List<Milieu> list = Arrays.asList(new Milieu[]{Milieu.lucht,Milieu.land});
 
     public Vogel(String naam, Vliegen vliegen) {
-        super(Huidbedekking.veren, list, naam);
+        super(Huidbedekking.veren, Arrays.asList(Milieu.lucht,Milieu.land), naam);
         this.vliegen = vliegen;
     }
 

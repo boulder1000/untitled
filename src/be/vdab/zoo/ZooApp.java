@@ -6,26 +6,29 @@ import java.util.List;
 public class ZooApp {
     public static void main(String[] args) {
         Zoo zoo = new Zoo();
-        zoo.VoegDierToe(new Struisvogel("bob",Vliegen.vliegen));
-        zoo.VoegDierToe(new Beer("ujhj", List.of(new String("berg"),new String("land"))));
-        zoo.VoegDierToe(new kikker("gb"));
-        zoo.VoegDierToe(new Krokodil("hjn,",5,12));
-        zoo.VoegDierToe(new Mens("rik",88101322344L,LocalDate.of(1988,10,13)));
-        zoo.VoegDierToe(new Zalm("kkkl",WelkeVis.zout,"rood"));
+        try {
 
-        //foute dieren
+            zoo.voegDierToe(new Struisvogel("struis", Vliegen.vliegen));
+            zoo.voegDierToe(new Beer("beer", List.of("berg", "land")));
+            zoo.voegDierToe(new Kikker("kikker"));
+            zoo.voegDierToe(new Krokodil("kroko,", 5, 12));
+            zoo.voegDierToe(new Mens("mens", 88101322344L, LocalDate.of(1988, 10, 13)));
+            zoo.voegDierToe(new Zalm("zalm", WelkeVis.zout, "rood"));
 
-        zoo.VoegDierToe(new Struisvogel("bob",Vliegen.vliegen));
-        zoo.VoegDierToe(new Beer("ghf", List.of(new String("land"),new String("land"))));
-        zoo.VoegDierToe(new Krokodil("fhd,",-5,12));
-        zoo.VoegDierToe(new Mens("sfg",8810122345L,LocalDate.of(1988,10,13)));
+            //foute dieren
 
-        zoo.printLijst();
+            //zoo.voegDierToe(new Struisvogel("struis", Vliegen.vliegen));
+            // zoo.voegDierToe(new Beer("beer1", List.of("land", "land")));
+            //zoo.voegDierToe(new Krokodil("kroko1,", -5, 12));
+            //zoo.voegDierToe(new Mens("mens1", 8810122345L, LocalDate.of(1988, 10, 13)));
 
-        zoo.printlijstVanAlleDieren();
-        zoo.lijstVanAlleDierenNamenGesorteerdOpAlfabet();
-        zoo.percentageMensen();
+            zoo.printLijst();
 
-
-    }
-}
+            zoo.printlijstVanAlleDieren();
+            zoo.lijstVanAlleDierenNamenGesorteerdOpAlfabet();
+            zoo.percentageMensen();
+        }
+        catch (IllegalArgumentException  | RijksregisternummerNietGeldigException ex ){
+            System.err.println(ex);
+        }
+}}
