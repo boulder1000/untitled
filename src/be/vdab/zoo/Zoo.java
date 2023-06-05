@@ -1,6 +1,7 @@
 package be.vdab.zoo;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public record Zoo( Set<GewerveldDier> set){
 
@@ -14,12 +15,12 @@ public record Zoo( Set<GewerveldDier> set){
 
     }
 
-    public Set printlijstVanAlleDieren(Set<GewerveldDier>list) {
-        list.stream().filter(GewerveldDier -> GewerveldDier.getMilieu().contains(Milieu.land)).forEach(GewerveldDier -> System.out.println(GewerveldDier.getNaam()));
+    public Set<String> printlijstVanAlleDieren(Set<GewerveldDier>list) {
+        return list.stream().filter(GewerveldDier -> GewerveldDier.getMilieu().contains(Milieu.land)).map(GewerveldDier  -> GewerveldDier.getNaam()).collect(Collectors.toSet());
     }
-    public void lijstVanAlleDierenNamenGesorteerdOpAlfabet()
+    public Set<String> lijstVanAlleDierenNamenGesorteerdOpAlfabet(Set<GewerveldDier> set)
     {
-  set.stream().sorted(Comparator.comparing(GewerveldDier::getNaam)).forEach(gewerveldDier -> System.out.println(gewerveldDier.getNaam()));
+        return set.stream().sorted(Comparator.comparing(GewerveldDier::getNaam)).map(GewerveldDier  -> GewerveldDier.getNaam()).collect(Collectors.toSet());
     }
 
 

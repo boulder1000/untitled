@@ -13,8 +13,8 @@ public class Beer extends Zoogdier {
 
     @Override
     public String toString() {
-        return "beer{" +
-                "l=" + leefgebied +
+        return "Beer{" +
+                "leefgebied=" + leefgebied +
                 "} " + super.toString();
     }
 

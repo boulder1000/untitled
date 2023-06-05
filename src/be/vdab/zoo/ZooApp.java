@@ -3,6 +3,7 @@ package be.vdab.zoo;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ZooApp {
     public static void main(String[] args) {
@@ -26,7 +27,7 @@ public class ZooApp {
             zoo.printLijst(zoo.set());
 
             zoo.printlijstVanAlleDieren(zoo.set());
-            zoo.lijstVanAlleDierenNamenGesorteerdOpAlfabet();
+          Set<String> setLijstAlpha = zoo.lijstVanAlleDierenNamenGesorteerdOpAlfabet(zoo.set());
             zoo.percentageMensen();
         }
         catch (IllegalArgumentException  | RijksregisternummerNietGeldigException ex ){
