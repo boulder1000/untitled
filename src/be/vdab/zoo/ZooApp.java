@@ -14,6 +14,7 @@ public class ZooApp {
             zoo.voegDierToe(new Beer("beer", List.of("berg", "land")));
             zoo.voegDierToe(new Kikker("kikker"));
             zoo.voegDierToe(new Krokodil("kroko,", 5, 12));
+            zoo.voegDierToe(new Krokodil("kroko1,", 5, 13));
             zoo.voegDierToe(new Mens("mens", 88101322344L, LocalDate.of(1988, 10, 13)));
             zoo.voegDierToe(new Zalm("zalm", WelkeVis.zout, "rood"));
 
@@ -26,9 +27,10 @@ public class ZooApp {
 
             zoo.printLijst(zoo.set());
 
-            zoo.printlijstVanAlleDieren(zoo.set());
-          Set<String> setLijstAlpha = zoo.lijstVanAlleDierenNamenGesorteerdOpAlfabet(zoo.set());
-            zoo.percentageMensen();
+            System.out.println(zoo.printlijstVanAlleDieren(zoo.set()));
+            System.out.println(zoo.lijstVanAlleDierenNamenGesorteerdOpAlfabet(zoo.set()));
+            System.out.println(zoo.percentageMensen(zoo.set()));
+            System.out.println(zoo.lijstVanAlleKrokodillenGesorteerdOpGewicht(zoo.set()));
         }
         catch (IllegalArgumentException  | RijksregisternummerNietGeldigException ex ){
             System.err.println(ex);
