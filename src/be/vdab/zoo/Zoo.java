@@ -2,20 +2,20 @@ package be.vdab.zoo;
 
 import java.util.*;
 
-public record Zoo() {
-    private static final Set<GewerveldDier> set = new HashSet<>();
+public record Zoo( Set<GewerveldDier> set){
+
 
     public void voegDierToe(GewerveldDier gewerveldDier) {
         set.add(gewerveldDier);
     }
 
-    public void  printLijst() {
-        set.stream().forEach(GewerveldDier -> System.out.println(GewerveldDier));
+    public void  printLijst(Set<GewerveldDier>list){
+        list.stream().forEach(GewerveldDier -> System.out.println(GewerveldDier));
 
     }
 
-    public void printlijstVanAlleDieren() {
-        set.stream().filter(GewerveldDier -> GewerveldDier.getMilieu().contains(Milieu.land)).forEach(GewerveldDier -> System.out.println(GewerveldDier.getNaam()));
+    public Set printlijstVanAlleDieren(Set<GewerveldDier>list) {
+        list.stream().filter(GewerveldDier -> GewerveldDier.getMilieu().contains(Milieu.land)).forEach(GewerveldDier -> System.out.println(GewerveldDier.getNaam()));
     }
     public void lijstVanAlleDierenNamenGesorteerdOpAlfabet()
     {

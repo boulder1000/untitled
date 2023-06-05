@@ -1,11 +1,12 @@
 package be.vdab.zoo;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
 
 public class ZooApp {
     public static void main(String[] args) {
-        Zoo zoo = new Zoo();
+        Zoo zoo = new Zoo(new HashSet<>());
         try {
 
             zoo.voegDierToe(new Struisvogel("struis", Vliegen.vliegen));
@@ -22,9 +23,9 @@ public class ZooApp {
             //zoo.voegDierToe(new Krokodil("kroko1,", -5, 12));
             //zoo.voegDierToe(new Mens("mens1", 8810122345L, LocalDate.of(1988, 10, 13)));
 
-            zoo.printLijst();
+            zoo.printLijst(zoo.set());
 
-            zoo.printlijstVanAlleDieren();
+            zoo.printlijstVanAlleDieren(zoo.set());
             zoo.lijstVanAlleDierenNamenGesorteerdOpAlfabet();
             zoo.percentageMensen();
         }
